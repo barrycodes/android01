@@ -25,6 +25,16 @@ namespace Phoneword
             //Button button = FindViewById<Button>(Resource.Id.MyButton);
 
             //button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
+
+            var phonewordText = FindViewById<EditText>(Resource.Id.phoneword);
+            var translateButton = FindViewById<Button>(Resource.Id.translate);
+            var callButton = FindViewById<Button>(Resource.Id.call);
+
+            translateButton.Click +=
+                delegate
+                {
+
+                };
         }
     }
 }
