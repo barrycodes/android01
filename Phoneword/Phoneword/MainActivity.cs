@@ -29,6 +29,7 @@ namespace Phoneword
             var phonewordText = FindViewById<EditText>(Resource.Id.PhonewordText);
             var translateButton = FindViewById<Button>(Resource.Id.TranslateButton);
             var callButton = FindViewById<Button>(Resource.Id.CallButton);
+            var callHistoryButton = FindViewById<Button>(Resource.Id.CallHistoryButton);
 
             translateButton.Click += delegate
             {

@@ -25,4 +25,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/CallButton"
         android:enabled="false" />
+    <Button
+        android:text="History"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/CallHistoryButton" />
 </LinearLayout>
