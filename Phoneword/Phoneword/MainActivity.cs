@@ -11,8 +11,6 @@ namespace Phoneword
     [Activity(Label = "Phoneword", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
-        int count = 1;
-
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -26,15 +24,40 @@ namespace Phoneword
 
             //button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
 
+            string phoneNumber = string.Empty;
+
             var phonewordText = FindViewById<EditText>(Resource.Id.phoneword);
             var translateButton = FindViewById<Button>(Resource.Id.translate);
             var callButton = FindViewById<Button>(Resource.Id.call);
 
-            translateButton.Click +=
-                delegate
+            translateButton.Click += delegate
+            {
+                phoneNumber = TranslateNumber.Translate(phonewordText.Text);
+                if (!string.IsNullOrWhiteSpace(phoneNumber))
                 {
+                    callButton.Enabled = true;
+                    callButton.Text = "Call " + phoneNumber;
+                }
+                else
+                {
+                    callButton.Enabled = false;
+                    callButton.Text = "Call";
+                }
+            };
 
-                };
+            callButton.Click += delegate
+            {
+                var confirmDialog = new AlertDialog.Builder(this);
+                confirmDialog.SetMessage("Call " + phoneNumber + "?");
+                confirmDialog.SetNeutralButton("Call", delegate
+                {
+                    var callIntent = new Intent(Intent.ActionCall);
+                    callIntent.SetData(Android.Net.Uri.Parse("tel:" + phoneNumber));
+                    StartActivity(callIntent);
+                });
+                confirmDialog.SetNegativeButton("Cancel", delegate { });
+                confirmDialog.Show();
+            };
         }
     }
 }
