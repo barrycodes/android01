@@ -19,7 +19,7 @@ namespace Phoneword
         {
             base.OnCreate(savedInstanceState);
 
-            var callList = Intent.Extras.GetStringArrayList("call_history");
+            var callList = Intent.Extras.GetStringArrayList("phone_numbers");
             ListAdapter =
                 new ArrayAdapter<string>(
                     this,
