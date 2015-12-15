@@ -12,17 +12,23 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/phoneword"
+        android:id="@+id/PhonewordText"
         android:text="1-888-phoneword" />
     <Button
         android:text="Translate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/translate" />
+        android:id="@+id/TranslateButton" />
     <Button
         android:text="Call"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/call"
+        android:id="@+id/CallButton"
+        android:enabled="false" />
+    <Button
+        android:text="@string/CallHistory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/CallHistoryButton"
         android:enabled="false" />
 </LinearLayout>
